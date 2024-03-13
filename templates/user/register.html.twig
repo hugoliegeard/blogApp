@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Inscription{% endblock %}
+
+
+{% block body %}
+    {# .container>.row>.col-6.mx-auto>h1{Créez votre compte}  #}
+    <div class="container">
+        <div class="row">
+            <div class="col-6 mx-auto">
+                <h1>Créez votre compte</h1>
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
