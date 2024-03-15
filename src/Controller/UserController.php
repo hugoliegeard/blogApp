@@ -55,8 +55,12 @@ class UserController extends AbstractController
             $manager->persist($user);
             $manager->flush();
 
+            # Notification
+            # https://symfony.com/doc/current/session.html#flash-messages
+            $this->addFlash('success', 'Félicitation, vous pouvez vous connecter.');
+
             # Redirection
-            return $this->redirectToRoute('app_default_home');
+            return $this->redirectToRoute('app_login');
 
         }
 

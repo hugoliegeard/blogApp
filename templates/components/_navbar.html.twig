@@ -14,8 +14,16 @@
                 <a class="nav-link active" aria-current="page" href="{{ path('app_default_home') }}">
                     Accueil
                 </a>
-                <a class="nav-link" href="{{ path('app_user_register') }}">Inscription</a>
                 <a class="nav-link" href="{{ path('app_category_index') }}">Categories</a>
+                {% if app.user %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="nav-link text-danger" href="{{ path('app_admin_dashboard') }}">Administration</a>
+                    {% endif %}
+                    <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                {% else %}
+                    <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                    <a class="nav-link" href="{{ path('app_user_register') }}">Inscription</a>
+                {% endif %}
                 <a class="nav-link" href="{{ path('app_default_contact') }}">Contactez-nous</a>
             </div>
         </div>
