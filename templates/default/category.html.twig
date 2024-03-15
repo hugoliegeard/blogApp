@@ -1,1 +1,28 @@
-<h1>Category : {{ slug }}</h1>
+{% extends "base.html.twig" %}
+
+{% block title %}Catégorie : {{ category.name }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <h1 class="display-3 mb-5">{{ category.name }}</h1>
+            {% for post in category.posts %}
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="{{ post.image }}" alt="{{ post.title }}" class="img-fluid">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="alert alert-info">
+                    Pas d'article pour le moment.
+                </div>
+            {% endfor %}
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+
+{% endblock %}
+
+
